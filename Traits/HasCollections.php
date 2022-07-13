@@ -13,7 +13,6 @@ use Modules\Collection\Utils\Table;
  */
 trait HasCollections
 {
-
     public function collection(): MorphOne
     {
         return $this->morphOne(Collection::class, 'collectionable');

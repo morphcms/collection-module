@@ -7,10 +7,8 @@ use Modules\Collection\Services\CollectionService;
 use Modules\Collection\Transformers\CollectionResource;
 use Modules\Morphling\Contracts\Bootstrapper;
 
-
 class CollectionBootstrapper implements Bootstrapper
 {
-
     public function __construct(protected CollectionService $collectionService)
     {
     }

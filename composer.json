@@ -27,8 +27,8 @@
         "eminiarts/nova-tabs": "^2.0.3",
         "spatie/laravel-sluggable": "^3.3",
         "spatie/eloquent-sortable": "^4.0",
-        "optimistdigital/nova-translatable": "^2.0.0",
-        "morphcms/morphling-module": "dev-main"
+        "morphcms/morphling-module": "dev-main",
+        "outl1ne/nova-translatable": "^2.0.1"
     },
     "repositories": [
         {

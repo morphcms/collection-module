@@ -16,7 +16,7 @@ class CollectionTool extends Tool
     public function boot()
     {
         Nova::resources([
-            Collection::class
+            Collection::class,
         ]);
     }
 

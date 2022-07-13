@@ -2,21 +2,15 @@
 
 namespace Modules\Collection\Utils;
 
+use Modules\Morphling\Traits\TableHelper;
+
+/**
+ * @method static collections(): string
+ * @method static collectionables(): string
+ */
 class Table
 {
+    use TableHelper;
 
-    public static function collections(): string
-    {
-        return self::prefix('collections');
-    }
-
-    public static function collectionables(): string
-    {
-        return self::prefix('collectionables');
-    }
-
-    protected static function prefix($table): string
-    {
-        return config('collection.table_prefix') . $table;
-    }
+    public static $configPath = 'collection.table_prefix';
 }

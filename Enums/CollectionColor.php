@@ -2,8 +2,6 @@
 
 namespace Modules\Collection\Enums;
 
-
-
 use Modules\Morphling\Enums\HasSelectOptions;
 use Modules\Morphling\Enums\HasValues;
 

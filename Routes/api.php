@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => '/collections' ], function (){
-  Route::get('/', \Modules\Collection\Http\Controllers\IndexController::class);
+Route::group(['prefix' => '/collections'], function () {
+    Route::get('/', \Modules\Collection\Http\Controllers\IndexController::class);
 });

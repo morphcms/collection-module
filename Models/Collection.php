@@ -19,6 +19,7 @@ class Collection extends Model
     use HasFactory, HasTranslations, SoftDeletes, Searchable, HasTranslatableSlug;
 
     public array $translatable = ['name', 'slug'];
+
     protected $fillable = [
         'name',
         'slug',
@@ -45,7 +46,7 @@ class Collection extends Model
 
     public function to(): string
     {
-        return '/' . is_null($this->parent) ? '' : $this->parent->slug . '/' . $this->slug;
+        return '/'.is_null($this->parent) ? '' : $this->parent->slug.'/'.$this->slug;
     }
 
     public function scopeRoot($query)

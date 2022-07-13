@@ -91,7 +91,7 @@ class SampleDataTableSeeder extends Seeder
             $this->collection('Natural Beauty'),
             $this->collection('Weight Management'),
         ])->map(
-            fn($payload) => $this->createCollections($payload)
+            fn ($payload) => $this->createCollections($payload)
         );
     }
 
@@ -102,15 +102,13 @@ class SampleDataTableSeeder extends Seeder
 
     private function createCollections(array $payload, Collection $parent = null)
     {
-
         $collection = new Collection(['name' => $payload['name'] ?? '', 'collection_id' => $parent?->id]);
 
         $collection->save();
 
         $children = collect($payload['children'] ?? [])
             ->map(
-                fn($child) => $this->createCollections($child, $collection)
+                fn ($child) => $this->createCollections($child, $collection)
             );
-
     }
 }

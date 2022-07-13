@@ -2,8 +2,8 @@
 
 namespace Modules\Collection\Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class CollectionDatabaseSeeder extends Seeder
 {
@@ -18,7 +18,7 @@ class CollectionDatabaseSeeder extends Seeder
 
         // $this->call("OthersTableSeeder");
         $this->call(InstallTableSeeder::class);
-        if(app()->environment('local')){
+        if (app()->environment('local')) {
             $this->call(SampleDataTableSeeder::class);
         }
     }

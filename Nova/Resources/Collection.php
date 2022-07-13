@@ -5,7 +5,6 @@ namespace Modules\Collection\Nova\Resources;
 use App\Nova\Resource;
 use Eminiarts\Tabs\Tabs;
 use Eminiarts\Tabs\Traits\HasTabs;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -29,9 +28,8 @@ class Collection extends Resource
     public static $group = 'taxonomies';
 
     public static $search = [
-        'name', 'slug'
+        'name', 'slug',
     ];
-
 
     public function fields(NovaRequest $request): array
     {
@@ -46,13 +44,13 @@ class Collection extends Resource
             Text::make('Name')
                 ->onlyOnForms()
                 ->translatable()
-                ->rulesFor('en','required'),
+                ->rulesFor('en', 'required'),
 
             Slug::make('Slug')
                 ->from('Name')
                 ->onlyOnForms()
                 ->translatable()
-                ->rulesFor('en','required'),
+                ->rulesFor('en', 'required'),
 
             BelongsTo::make('Parent Collection', 'parent', Collection::class)->nullable(),
 
@@ -60,7 +58,7 @@ class Collection extends Resource
                 ->options(CollectionColor::options(nova: true))
                 ->hideFromIndex()
                 ->nullable()
-                ->canSee(fn() => is_null($this->collection_id)),
+                ->canSee(fn () => is_null($this->collection_id)),
 
             Tabs::make('Relations', [
                 HasMany::make('Sub Collections', 'children', Collection::class),
