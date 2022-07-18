@@ -3,12 +3,12 @@
 namespace Modules\Collection\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Modules\Morphling\Events\RegisterModulesNovaTools;
+use Modules\Morphling\Events\BootModulesNovaTools;
 
 class EventServiceProvider extends ServiceProvider
 {
     protected $listen = [
-        RegisterModulesNovaTools::class => [
+        BootModulesNovaTools::class => [
 
         ],
     ];
