@@ -1,5 +1,7 @@
 <?php
 
+namespace Modules\Collection\Listeners;
+
 class RegisterCollectionNovaTool
 {
     public function __invoke($event): array

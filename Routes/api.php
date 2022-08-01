@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Collection\Http\Controllers\Api\V1\CollectionChildrenController;
+use Modules\Collection\Http\Controllers\Api\V1\CollectionParentController;
+use Modules\Collection\Http\Controllers\Api\V1\CollectionsController;
+use Orion\Facades\Orion;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => '/collections'], function () {
-    Route::get('/', \Modules\Collection\Http\Controllers\IndexController::class);
+Route::group(['prefix' => 'v1/'], function () {
+    Orion::resource('collections', CollectionsController::class)->withSoftDeletes();
+    Orion::belongsToResource('collections', 'parent', CollectionParentController::class)->withSoftDeletes();
+    Orion::hasManyResource('collections', 'children', CollectionChildrenController::class)->withSoftDeletes();
 });
