@@ -10,21 +10,35 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
 use Modules\Collection\Database\Factories\CollectionFactory;
 use Modules\Collection\Utils\Table;
+use Modules\Morphling\Traits\ClearsCacheResponse;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Sluggable\HasTranslatableSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Collection extends Model
+class Collection extends Model implements Sortable
 {
-    use HasFactory, HasTranslations, SoftDeletes, Searchable, HasTranslatableSlug;
+    use HasFactory,
+        HasTranslations,
+        SoftDeletes,
+        Searchable,
+        HasTranslatableSlug,
+        SortableTrait,
+        ClearsCacheResponse;
 
     public array $translatable = ['name', 'slug'];
 
     protected $fillable = [
         'name',
         'slug',
-        'color',
         'parent_id',
+    ];
+
+    public array $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
+        'sort_on_has_many' => true,
     ];
 
     protected static function newFactory(): CollectionFactory
@@ -42,11 +56,6 @@ class Collection extends Model
         return [
             'name' => $this->name,
         ];
-    }
-
-    public function to(): string
-    {
-        return '/'.is_null($this->parent) ? '' : $this->parent->slug.'/'.$this->slug;
     }
 
     public function scopeRoot($query)

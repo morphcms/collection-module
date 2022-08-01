@@ -1,13 +1,17 @@
 {
     "name": "Collection",
     "alias": "collection",
-    "description": "",
-    "keywords": [],
-    "priority": 0,
+    "description": "A module to manage collections a.k.a categories.",
+    "keywords": ["categories"],
+    "priority": 1,
     "providers": [
         "Modules\\Collection\\Providers\\CollectionServiceProvider"
     ],
     "aliases": {},
     "files": [],
-    "requires": ["morphling"]
+    "requires": ["morphling"],
+    "minimumCoreVersion": "",
+    "title": "Collections",
+    "version": "0.0.0",
+    "author": "Binome Way"
 }

@@ -17,9 +17,10 @@ return new class extends Migration
         Schema::create(Table::collections(), function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\Modules\Collection\Models\Collection::class)->nullable();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('color')->nullable();
+            $table->json('name'); // JSON to be translated
+            $table->json('slug'); // JSON to be translated
+            $table->json('meta')->nullable();
+            $table->unsignedInteger('sort_order')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

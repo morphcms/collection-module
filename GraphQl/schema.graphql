@@ -1,0 +1,16 @@
+extend type Query {
+    collection(id: ID@eq,
+        slug: String @eq(key: "slug->en")): Collection @find(model: "Modules\\Collection\\Models\\Collection"
+    )
+    collections: [Collection!]! @all(model: "Modules\\Collection\\Models\\Collection")
+}
+
+type Collection {
+    id: ID!,
+    collection_id: Int
+    slug: String!,
+    name: String!,
+    meta: String,
+    children: [Collection!] @hasMany
+    parent: Collection! @belongsTo
+}

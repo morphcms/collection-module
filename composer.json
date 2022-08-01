@@ -27,17 +27,15 @@
         "eminiarts/nova-tabs": "^2.0.3",
         "spatie/laravel-sluggable": "^3.3",
         "spatie/eloquent-sortable": "^4.0",
-        "morphcms/morphling-module": "dev-main",
-        "outl1ne/nova-translatable": "^2.0.1"
+        "outl1ne/nova-translatable": "^2.0.1",
+        "outl1ne/nova-sortable": "3.0.1",
+        "tailflow/laravel-orion": "^2.13"
     },
+
     "repositories": [
         {
             "type": "composer",
             "url": "https://nova.laravel.com/"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/morphcms/morphling-module.git"
         }
     ]
 }
